@@ -12,7 +12,6 @@ A React-based web application that helps users discover new music artists based 
   - Profile image
   - Follower count
   - Music genres
-- 🔐 Secure Spotify authentication (OAuth 2.0)
 - 🎧 View artist's top tracks (when logged in)
 - 🎨 Responsive design with attractive UI
 
