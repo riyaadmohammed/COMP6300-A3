@@ -20,7 +20,6 @@ A React-based web application that helps users discover new music artists based 
 
 - React.js (with Hooks)
 - Spotify Web API
-- OAuth 2.0 Authentication (PKCE flow)
 - Axios for API requests
 - CSS3 for styling
 - GitHub Pages for deployment
