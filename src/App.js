@@ -17,15 +17,11 @@ function App() {
   // Handle Spotify callback on initial load
   useEffect(() => {
     const initializeAuth = async () => {
-      const token = await handleSpotifyCallback();
-      if (token) {
-        const accessToken = getUserAccessToken();
-        if (accessToken) {
-          // You could fetch user profile here if needed
-          setUser({ loggedIn: true });
+        const token = await handleSpotifyCallback(); // This checks both query params and hash fragment
+        if (token) {
+            setUser({ loggedIn: true });
         }
-      }
-      setLoading(false);
+        setLoading(false);
     };
 
     initializeAuth();

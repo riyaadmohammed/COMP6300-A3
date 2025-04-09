@@ -8,6 +8,47 @@ const scopes = [
     "user-read-recently-played"
 ];
 
+export const loginWithSpotify = () => {
+    const authUrl = new URL("https://accounts.spotify.com/authorize");
+    authUrl.searchParams.append("client_id", clientId);
+    authUrl.searchParams.append("response_type", "token");
+    authUrl.searchParams.append("redirect_uri", redirectUri);
+    authUrl.searchParams.append("scope", scopes.join(" "));
+    
+    window.location.href = authUrl.toString();
+};
+
+export const handleSpotifyCallback = () => {
+    const hash = window.location.hash.substring(1);
+    const params = new URLSearchParams(hash);
+    const accessToken = params.get("access_token");
+    const error = params.get("error");
+
+    if (error) {
+        console.error("Spotify auth error:", error);
+        return null;
+    }
+
+    if (accessToken) {
+        localStorage.setItem("spotify_access_token", accessToken);
+        window.history.replaceState({}, "", window.location.pathname);
+        return accessToken;
+    }
+
+    return null;
+};
+
+export const getUserAccessToken = () => {
+    return localStorage.getItem("spotify_access_token") || null;
+};
+
+export const logoutFromSpotify = () => {
+    localStorage.removeItem("spotify_access_token");
+    window.location.reload();
+};
+
+/*
+// commented off as PKCE flow even though more secure, requires code verifcation, thus for easy login, we use the token authentication flow
 // Generates a random string for PKCE challenge
 const generateRandomString = (length) => {
     const possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -31,8 +72,8 @@ const base64encode = (buffer) => {
         .replace(/\//g, "_");
 };
 
-// Initiates the Spotify Login Flow
-export const loginWithSpotify = async () => {
+// Initiates the Spotify Login Flow through key Exchange
+export const loginWithSpotifyWithCode = async () => {
     const codeVerifier = generateRandomString(128);
     const hashed = await sha256(codeVerifier);
     const codeChallenge = base64encode(hashed);
@@ -49,6 +90,8 @@ export const loginWithSpotify = async () => {
 
     window.location.href = authUrl.toString();
 };
+
+
 
 // Handles the OAuth callback and exchanges code for an access token
 export const handleSpotifyCallback = async () => {
@@ -99,3 +142,5 @@ export const logoutFromSpotify = () => {
     localStorage.removeItem("spotify_access_token"); // Remove token
     window.location.reload(); // Refresh the page to reset the state
 };
+
+*/
