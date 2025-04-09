@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/COMP6300-A3/static/css/main.f6ae81f8.css",
+    "main.css": "/COMP6300-A3/static/css/main.2c9efb53.css",
     "main.js": "/COMP6300-A3/static/js/main.7eb492e4.js",
     "static/js/453.136226ca.chunk.js": "/COMP6300-A3/static/js/453.136226ca.chunk.js",
     "index.html": "/COMP6300-A3/index.html",
-    "main.f6ae81f8.css.map": "/COMP6300-A3/static/css/main.f6ae81f8.css.map",
+    "main.2c9efb53.css.map": "/COMP6300-A3/static/css/main.2c9efb53.css.map",
     "main.7eb492e4.js.map": "/COMP6300-A3/static/js/main.7eb492e4.js.map",
     "453.136226ca.chunk.js.map": "/COMP6300-A3/static/js/453.136226ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6ae81f8.css",
+    "static/css/main.2c9efb53.css",
     "static/js/main.7eb492e4.js"
   ]
 }
